@@ -1,12 +1,12 @@
 # python-scratch
 My sandbox/playground to play with python
 
-## Setup/Install
+## Setup/Install for Mac
 Goal is to use python 3.x with `virtualenv`.  I based this on some stack overflow reading and finally just going
 through this: https://docs.python-guide.org/dev/virtualenvs/
 
 I used home brew and set some aliases up:
-`brew install python3`
+`make mac-dependencies`
 
 Edited my .aliases file
 ```sh
@@ -14,10 +14,11 @@ alias pip='pip3'
 alias python='python3'
 ```
 
-Used cookiecutter
-`pip install cookiecutter`
+Installed dependences (check Makefile for list)
+`make`
 
-Used a template
+### Cookiecutter
+Used a template to set up project:
 Reference: https://github.com/kragniz/cookiecutter-pypackage-minimal
 
 ```sh
@@ -28,7 +29,7 @@ cookiecutter cookiecutter-pypackage-minimal/
 Below installs pipenv, which also installs virtualenv
 `make dependencies`
 
-## Virtualenv
+### Virtualenv
 Using the virtual environment manually:
 ```sh
 source venv/bin/activate
@@ -42,3 +43,9 @@ vim ~/.aliases
 alias act='source venv/bin/activate'
 alias deact='deactivate'
 ```
+
+## References
+Python Guide: https://docs.python-guide.org/
+- It covers a lot of topics from tools like logging, build/deploy, concurrency, etc.
+Testing: https://docs.pytest.org/en/latest/
+Documenting: http://www.sphinx-doc.org/en/master/
