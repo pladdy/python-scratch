@@ -9,8 +9,8 @@ else
 $(info HOMEBREW undefined, cannott proceed)
 endif
 
-coverage:
-	PYTHONPATH=./ pipenv run pytest --cov python_scratch .
+cover:
+	PYTHONPATH=./ pipenv run pytest -v --cov python_scratch .
 	coverage html
 	open htmlcov/index.html
 
@@ -23,4 +23,4 @@ python-dependencies:
 	pipenv install
 
 test:
-	PYTHONPATH=./ pipenv run pytest
+	PYTHONPATH=./ pipenv run pytest -s -v
