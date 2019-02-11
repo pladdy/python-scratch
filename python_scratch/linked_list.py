@@ -10,7 +10,7 @@ class LinkedList:
 
         count = 1
         next = self.nodes.next
-        while next != None:
+        while next is not None:
             count += 1
             next = next.next
         return count
@@ -25,6 +25,7 @@ class LinkedList:
             new_node.next = next_node
             next_node.previous = new_node
             self.nodes = new_node
+
 
 class Node:
     def __init__(self, data):

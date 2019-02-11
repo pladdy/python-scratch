@@ -14,6 +14,7 @@ pipenv install pipenv
 pipenv install pytest
 pipenv install pytest-cov
 pipenv install pylama
+pipenv install pylama-pylint
 ```
 
 Edited my .aliases file

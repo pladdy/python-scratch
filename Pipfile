@@ -4,6 +4,8 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pylama = "*"
+pylama-pylint = "*"
 
 [packages]
 alabaster = "==0.7.12"
@@ -30,7 +32,6 @@ py = "==1.7.0"
 pycodestyle = "==2.5.0"
 pydocstyle = "==3.0.0"
 pyflakes = "==2.1.0"
-pylama = "==7.6.6"
 pyparsing = "==2.3.1"
 pytest = "==4.2.0"
 pytest-cov = "==2.6.1"

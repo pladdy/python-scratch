@@ -1,8 +1,9 @@
 from python_scratch import linked_list as ll
 
+
 class TestLinkedList:
     def test_init(self):
-        assert ll.LinkedList().nodes == None
+        assert ll.LinkedList().nodes is None
 
     def test_count(self):
         list = ll.LinkedList()
@@ -25,9 +26,10 @@ class TestLinkedList:
         list.insert("another node")
         assert list.nodes.data == "another node"
 
+
 class TestNode:
     def test_init(self):
         node = ll.Node("data")
         assert node.data == "data"
-        assert node.next == None
-        assert node.previous == None
+        assert node.next is None
+        assert node.previous is None
