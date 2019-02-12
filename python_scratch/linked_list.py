@@ -4,6 +4,22 @@ class LinkedList:
         # should I use an array instead?
         self.nodes = None
 
+    def append(self, data):
+        new_node = Node(data)
+
+        if self.nodes is None:
+            self.nodes = new_node
+            return
+
+        previous = self.nodes
+        next = self.nodes.next
+
+        while next is not None:
+            previous = next
+            next = next.next
+
+        previous.next = new_node
+
     def count(self):
         if self.nodes is None:
             return 0

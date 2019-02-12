@@ -5,6 +5,17 @@ class TestLinkedList:
     def test_init(self):
         assert ll.LinkedList().nodes is None
 
+    def test_append(self):
+        list = ll.LinkedList()
+        list.append("a node")
+        assert list.nodes.data == "a node"
+
+        list.append("another node")
+        assert list.nodes.next.data == "another node"
+
+        list.append("yet another node")
+        assert list.nodes.next.next.data == "yet another node"
+
     def test_count(self):
         list = ll.LinkedList()
         assert list.count() == 0

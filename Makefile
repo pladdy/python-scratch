@@ -1,4 +1,4 @@
-.PHONY: dependencies mac-dependencies mac-python test
+.PHONY: dependencies lint mac-dependencies mac-python python-depdencies test
 
 HOMEBREW = $(shell which homebrew)
 
@@ -13,6 +13,9 @@ cover:
 	PYTHONPATH=./ pipenv run pytest -v --cov python_scratch .
 	coverage html
 	open htmlcov/index.html
+
+lint:
+	pylama python_scratch/ tests/
 
 mac-dependencies: mac-python python-dependencies
 
