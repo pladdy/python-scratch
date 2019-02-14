@@ -1,31 +1,29 @@
 class LinkedList:
     def __init__(self):
-        # should the list of 'nodes' just be a node pointing to the next?
-        # should I use an array instead?
-        self.nodes = None
+        self.head = None
 
     def append(self, data):
         new_node = Node(data)
 
-        if self.nodes is None:
-            self.nodes = new_node
+        if self.head is None:
+            self.head = new_node
             return
 
-        previous = self.nodes
-        next = self.nodes.next
+        past = self.head
+        next = self.head.next
 
         while next is not None:
-            previous = next
+            past = next
             next = next.next
 
-        previous.next = new_node
+        past.next = new_node
 
     def count(self):
-        if self.nodes is None:
+        if self.head is None:
             return 0
 
         count = 1
-        next = self.nodes.next
+        next = self.head.next
         while next is not None:
             count += 1
             next = next.next
@@ -34,18 +32,44 @@ class LinkedList:
     def insert(self, data):
         new_node = Node(data)
 
-        if self.nodes is None:
-            self.nodes = new_node
+        if self.head is None:
+            self.head = new_node
         else:
-            next_node = self.nodes
+            next_node = self.head
             new_node.next = next_node
-            next_node.previous = new_node
-            self.nodes = new_node
+            next_node.past = new_node
+            self.head = new_node
+
+    def reverse(self):
+        previous = None
+        current_node = self.head
+
+        while current_node is not None:
+            # save a reference to next node
+            next_node = current_node.next
+            # reverse current pointers
+            current_node.past = current_node.next
+            current_node.next = previous
+            # save previous and point to next node
+            previous = current_node
+            current_node = next_node
+
+        self.head = previous
+
+    def to_array(self):
+        array = []
+        node = self.head
+
+        while node.next is not None:
+            array.append(node.data)
+            node = node.next
+        array.append(node.data)
+
+        return array
 
 
 class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
-        # if previous is None, it's the head of the list
-        self.previous = None
+        self.past = None
