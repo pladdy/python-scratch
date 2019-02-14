@@ -66,7 +66,7 @@ alias deact='deactivate'
 ```
 
 ## References
-Python Guide: https://docs.python-guide.org/
-- It covers a lot of topics from tools like logging, build/deploy, concurrency, etc.
-Testing: https://docs.pytest.org/en/latest/
-Documenting: http://www.sphinx-doc.org/en/master/
+* Python Guide: https://docs.python-guide.org/
+  * It covers a lot of topics from tools like logging, build/deploy, concurrency, etc.
+* Testing with pytest: https://docs.pytest.org/en/latest/
+* Documenting Tool: http://www.sphinx-doc.org/en/master/
