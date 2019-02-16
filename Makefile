@@ -24,10 +24,11 @@ lint:
 mac-dependencies: mac-python python-dependencies
 
 mac-python:
-	brew install python3
+	-brew install python3
+	-brew install pandoc
 
 python-dependencies:
-	pip install pipenv
+	pip3 install pipenv
 	pipenv install
 
 test:
