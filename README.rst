@@ -25,6 +25,7 @@ Usage
   cd python_scratch
   make
   make test
+  make cover # to see coverage
 
 Installation
 ------------

@@ -1,8 +1,11 @@
 class LinkedList:
+    """ Single linked list implementation """
+
     def __init__(self):
         self.head = None
 
     def append(self, data):
+        """ append data as a node to the linked list.  has to traverse the list """
         new_node = Node(data)
 
         if self.head is None:
@@ -30,6 +33,7 @@ class LinkedList:
         return count
 
     def insert(self, data):
+        """ inserts a new node of data as the head of the list """
         new_node = Node(data)
 
         if self.head is None:
@@ -41,6 +45,7 @@ class LinkedList:
             self.head = new_node
 
     def reverse(self):
+        """ reverse the linked list with one pass by swapping each next/past references """
         previous = None
         current_node = self.head
 
@@ -57,6 +62,7 @@ class LinkedList:
         self.head = previous
 
     def to_array(self):
+        """ return an array of each nodes 'data' property """
         array = []
         node = self.head
 
