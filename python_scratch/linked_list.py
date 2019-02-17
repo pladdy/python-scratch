@@ -1,5 +1,7 @@
 class LinkedList:
-    """ Single linked list implementation """
+    """ Linked list implementation
+        TODO: have a linked list class and use it to create single, double, and circular linked list classes...
+    """
 
     def __init__(self):
         self.head = None
@@ -12,25 +14,42 @@ class LinkedList:
             self.head = new_node
             return
 
-        past = self.head
-        next = self.head.next
+        current_node = self.head
+        past_node = None
+        while current_node is not None:
+            past_node = current_node
+            current_node = current_node.next
 
-        while next is not None:
-            past = next
-            next = next.next
-
-        past.next = new_node
+        past_node.next = new_node
+        new_node.past = past_node
 
     def count(self):
-        if self.head is None:
-            return 0
+        count = 0
 
-        count = 1
-        next = self.head.next
-        while next is not None:
+        if self.head is None:
+            return count
+
+        current = self.head
+        while current is not None:
             count += 1
-            next = next.next
+            current = current.next
         return count
+
+    def delete(self, data):
+        """ traverse list and if data is found delete that node from list """
+        current_node = self.head
+        last_node = None
+        while current_node is not None:
+            if current_node.data == data:
+                if current_node == self.head:
+                    self.head = current_node.next
+                else:
+                    last_node.next = current_node.next
+                    if current_node.next is not None:
+                        current_node.next.past = last_node
+            else:
+                last_node = current_node
+            current_node = current_node.next
 
     def insert(self, data):
         """ inserts a new node of data as the head of the list """
@@ -40,9 +59,9 @@ class LinkedList:
             self.head = new_node
         else:
             next_node = self.head
-            new_node.next = next_node
-            next_node.past = new_node
             self.head = new_node
+            self.head.next = next_node
+            next_node.past = new_node
 
     def reverse(self):
         """ reverse the linked list with one pass by swapping each next/past references """
@@ -66,6 +85,9 @@ class LinkedList:
         array = []
         node = self.head
 
+        if node is None:
+            return array
+
         while node.next is not None:
             array.append(node.data)
             node = node.next
@@ -79,3 +101,11 @@ class Node:
         self.data = data
         self.next = None
         self.past = None
+
+    def to_string(self):
+        """ convert node to string for printing """
+        strs = ["Node ID: {}".format(self)]
+        strs.append("Node data: {}".format(self.data))
+        strs.append("Node next: {}".format(self.next))
+        strs.append("Node past: {}".format(self.past))
+        return "\n".join(strs)
