@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "2dad56ed5966a208fdd9b87745a0c2d2fc5cd460237e19ee08a27e4732a7d735"
+            "sha256": "81c10782fcc332ebe474ad91000f18ab9980f3f882742ea807bc3e4e6b4a3dff"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -188,6 +188,19 @@
             "index": "pypi",
             "version": "==0.2.0"
         },
+        "mako": {
+            "hashes": [
+                "sha256:4e02fde57bd4abb5ec400181e4c314f56ac3e49ba4fb8b0d50bba18cb27d25ae"
+            ],
+            "version": "==1.0.7"
+        },
+        "markdown": {
+            "hashes": [
+                "sha256:c00429bd503a47ec88d5e30a751e147dcb4c6889663cd3e2ba0afe858e009baa",
+                "sha256:d02e0f9b04c500cde6637c11ad7c72671f359b87b9fe924b2383649d8841db7c"
+            ],
+            "version": "==3.0.1"
+        },
         "markupsafe": {
             "hashes": [
                 "sha256:048ef924c1623740e70204aa7143ec592504045ae4429b59c30054cb31e3c432",
@@ -239,12 +252,12 @@
             "index": "pypi",
             "version": "==5.0.0"
         },
-        "packaging": {
+        "pdoc3": {
             "hashes": [
-                "sha256:0c98a5d0be38ed775798ece1b9727178c4469d9c3b4ada66e8e6b7849f8732af",
-                "sha256:9e1cbf8c12b1f1ce0bb5344b8d7ecf66a6f8a6e91bcb0c84593ed6d3ab5c4ab3"
+                "sha256:1124004173612e1afd7bed3e948aae56e2523f92050b4584f49e7c971474c23f"
             ],
-            "version": "==19.0"
+            "index": "pypi",
+            "version": "==0.5.2"
         },
         "pipenv": {
             "hashes": [
@@ -375,14 +388,6 @@
             ],
             "index": "pypi",
             "version": "==1.2.1"
-        },
-        "sphinx": {
-            "hashes": [
-                "sha256:b53904fa7cb4b06a39409a492b949193a1b68cc7241a1a8ce9974f86f0d24287",
-                "sha256:c1c00fc4f6e8b101a0d037065043460dffc2d507257f2f11acaed71fd2b0c83c"
-            ],
-            "index": "pypi",
-            "version": "==1.8.4"
         },
         "sphinxcontrib-websupport": {
             "hashes": [

@@ -13,7 +13,6 @@ python-scratch
    :target: https://codecov.io/gh/pladdy/python-scratch
    :alt: Code Coverage
 
-
 Me learning python
 
 Goals
@@ -73,10 +72,9 @@ Now one can just use `make` and dependencies should be taken care of with pipenv
 
 .. code:: bash
 
-  pip install pipenv
+  pip3 install pipenv
   pipenv install cookiecutter
-  pipenv install sphinx
-  pipenv install pipenv
+  pipenv install pdoc3
   pipenv install pytest
   pipenv install pytest-cov
   pipenv install codecov
@@ -113,7 +111,7 @@ References
 * Python Guide: https://docs.python-guide.org/
     * It covers a lot of topics from tools like logging, build/deploy, concurrency, etc.
 * Testing with pytest: https://docs.pytest.org/en/latest/
-* Documenting Tool: http://www.sphinx-doc.org/en/master/
+* Documenting Tool: https://pdoc3.github.io/pdoc/
 
 Compatibility
 -------------

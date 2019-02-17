@@ -49,8 +49,8 @@ Babel = "==2.6.0"
 Jinja2 = "==2.10"
 MarkupSafe = "==1.1.0"
 Pygments = "==2.3.1"
-Sphinx = "==1.8.4"
 codecov = "*"
+pdoc3 = "*"
 
 [requires]
 python_version = "3.7"

@@ -1,36 +1,39 @@
 import pytest
 
-from data_structures import linked_list as ll
+from data_structures.linked_list import LinkedList
+from data_structures.linked_list import Node
+
 
 @pytest.fixture
 def new_linked_list():
-        list = ll.LinkedList()
-        list.append(1)
-        list.append(2)
-        list.append(3)
-        list.append(4)
-        list.append(5)
-        return list
+    list = LinkedList()
+    list.append(1)
+    list.append(2)
+    list.append(3)
+    list.append(4)
+    list.append(5)
+    return list
+
 
 class TestLinkedList:
     def test_init(self):
-        assert ll.LinkedList().head is None
+        assert LinkedList().head is None
 
     def test_append(self):
-        list = ll.LinkedList()
+        list = LinkedList()
         list.append("a node")
 
         first = list.head
         assert list.count() == 1
         assert first.data == "a node"
-        assert first.next == None
-        assert first.past == None
+        assert first.next is None
+        assert first.past is None
 
         list.append("another node")
         second = first.next
         assert list.count() == 2
         assert second.data == "another node"
-        assert second.next == None
+        assert second.next is None
         assert second.past == first
         assert first.next == second
 
@@ -38,12 +41,12 @@ class TestLinkedList:
         third = second.next
         assert list.count() == 3
         assert third.data == "yet another node"
-        assert third.next == None
+        assert third.next is None
         assert third.past == second
         assert second.next == third
 
     def test_count(self):
-        list = ll.LinkedList()
+        list = LinkedList()
         assert list.count() == 0
 
         list.insert("a node")
@@ -53,7 +56,7 @@ class TestLinkedList:
         assert list.count() == 2
 
     def test_delete(self, new_linked_list):
-        list = ll.LinkedList()
+        list = LinkedList()
         list.append(1)
         list.append(2)
         list.append(3)
@@ -68,10 +71,10 @@ class TestLinkedList:
 
         assert first.data == 1
         assert first.next == last
-        assert first.past == None
+        assert first.past is None
 
         assert last.data == 3
-        assert last.next == None
+        assert last.next is None
         assert last.past == first
 
         list = new_linked_list
@@ -97,25 +100,25 @@ class TestLinkedList:
         assert list.to_array() == []
 
     def test_insert(self):
-        list = ll.LinkedList()
+        list = LinkedList()
         list.insert("a node")
 
         first = list.head
         assert list.count() == 1
         assert first.data == "a node"
-        assert first.next == None
-        assert first.past == None
+        assert first.next is None
+        assert first.past is None
 
         list.insert("another node")
         new_first = list.head
         assert list.count() == 2
         assert new_first.data == "another node"
         assert new_first.next == first
-        assert new_first.past == None
+        assert new_first.past is None
         assert first.past == new_first
 
     def test_reverse(self):
-        list = ll.LinkedList()
+        list = LinkedList()
         list.insert(3)
         list.insert(2)
         list.insert(1)
@@ -127,12 +130,12 @@ class TestLinkedList:
 
 class TestNode:
     def test_init(self):
-        node = ll.Node("data")
+        node = Node("data")
         assert node.data == "data"
         assert node.next is None
         assert node.past is None
 
     def test_to_string(self):
-        node = ll.Node("data")
+        node = Node("data")
         str = node.to_string()
         assert len(str) > 0

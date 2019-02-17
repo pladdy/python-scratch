@@ -18,6 +18,9 @@ cover: htmlcov
 	coverage html
 	open htmlcov/index.html
 
+docs:
+	pipenv run pdoc --html data_structures/
+
 htmlcov:
 	$(TEST) --cov data_structures
 
