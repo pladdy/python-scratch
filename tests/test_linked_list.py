@@ -131,3 +131,8 @@ class TestNode:
         assert node.data == "data"
         assert node.next is None
         assert node.past is None
+
+    def test_to_string(self):
+        node = ll.Node("data")
+        str = node.to_string()
+        assert len(str) > 0

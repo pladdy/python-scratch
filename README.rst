@@ -74,6 +74,7 @@ Now one can just use `make` and dependencies should be taken care of with pipenv
   pipenv install pipenv
   pipenv install pytest
   pipenv install pytest-cov
+  pipenv install codecov
   pipenv install pylama
   pipenv install pylama-pylint
 

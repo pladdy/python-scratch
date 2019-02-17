@@ -14,7 +14,7 @@ clean:
 	rm -rf htmlcov venv
 
 cover:
-	PYTHONPATH=./ pipenv run pytest -v --cov python_scratch .
+	PYTHONPATH=./ pipenv run pytest -v --cov data_structures
 	coverage html
 	open htmlcov/index.html
 

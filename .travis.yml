@@ -11,4 +11,4 @@ script:
   - PYTHONPATH=./ pytest -s -v
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - codecov

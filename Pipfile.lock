@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "75b8b789e704d5d9a7f686bd0b9ec9df5acab78aa7eb560db0eb7c5ad2af1d45"
+            "sha256": "2dad56ed5966a208fdd9b87745a0c2d2fc5cd460237e19ee08a27e4732a7d735"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -86,6 +86,14 @@
             ],
             "index": "pypi",
             "version": "==7.0"
+        },
+        "codecov": {
+            "hashes": [
+                "sha256:8ed8b7c6791010d359baed66f84f061bba5bd41174bf324c31311e8737602788",
+                "sha256:ae00d68e18d8a20e9c3288ba3875ae03db3a8e892115bf9b83ef20507732bed4"
+            ],
+            "index": "pypi",
+            "version": "==2.0.15"
         },
         "cookiecutter": {
             "hashes": [
