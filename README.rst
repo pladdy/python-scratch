@@ -5,9 +5,14 @@ python-scratch
     :target: https://pypi.python.org/pypi/python-scratch
     :alt: Latest PyPI version
 
-.. image:: https://travis-ci.org/pladdy/python-scratch.png
+.. image:: https://travis-ci.org/pladdy/python-scratch.svg?branch=master
    :target: https://travis-ci.org/pladdy/python-scratch
-   :alt: Latest Travis CI build status
+   :alt: Build Status
+
+.. image:: https://codecov.io/gh/pladdy/stones/branch/master/graph/badge.svg
+   :target: https://codecov.io/gh/pladdy/python-scratch
+   :alt: Code Coverage
+
 
 Me learning python
 

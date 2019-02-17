@@ -1,6 +1,7 @@
 .PHONY: all clean dependencies lint mac-dependencies mac-python python-depdencies test
 
 HOMEBREW = $(shell which homebrew)
+TEST = PYTHONPATH=./ pipenv run pytest -s -v
 
 all:
 ifdef HOMEBREW
@@ -13,10 +14,12 @@ endif
 clean:
 	rm -rf htmlcov venv
 
-cover:
-	PYTHONPATH=./ pipenv run pytest -v --cov data_structures
+cover: htmlcov
 	coverage html
 	open htmlcov/index.html
+
+htmlcov:
+	$(TEST) --cov data_structures
 
 lint:
 	pylama python_scratch/ tests/
@@ -32,4 +35,6 @@ python-dependencies:
 	pipenv install
 
 test:
-	PYTHONPATH=./ pipenv run pytest -s -v
+	$(TEST)
+
+test-with-cov: test htmlcov

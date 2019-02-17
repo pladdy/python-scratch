@@ -8,7 +8,7 @@ install:
   - pipenv install
 
 script:
-  - PYTHONPATH=./ pytest -s -v
+  - make test-with-cov
 
 after_success:
   - codecov
