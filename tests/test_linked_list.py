@@ -1,6 +1,6 @@
 import pytest
 
-from python_scratch import linked_list as ll
+from data_structures import linked_list as ll
 
 @pytest.fixture
 def new_linked_list():
