@@ -20,7 +20,9 @@ cover: htmlcov
 
 docs:
 	pipenv run pdoc --html data_structures --overwrite
+	pipenv run pdoc --html algorithms --overwrite
 	open html/data_structures/index.html
+	open html/algorithms/index.html
 
 htmlcov:
 	$(TEST) --cov data_structures
@@ -40,5 +42,12 @@ python-dependencies:
 
 test:
 	$(TEST)
+
+test-name:
+ifdef name
+	$(TEST) -k $(name)
+else
+	@echo Syntax is 'make $@ name=<test name>'
+endif
 
 test-with-cov: test htmlcov
