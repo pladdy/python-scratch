@@ -1,4 +1,4 @@
-.PHONY: all clean dependencies lint mac-dependencies mac-python python-depdencies test
+.PHONY: all clean dependencies docs lint mac-dependencies mac-python python-depdencies test
 
 HOMEBREW = $(shell which homebrew)
 TEST = PYTHONPATH=./ pipenv run pytest -s -v
@@ -19,7 +19,8 @@ cover: htmlcov
 	open htmlcov/index.html
 
 docs:
-	pipenv run pdoc --html data_structures/
+	pipenv run pdoc --html data_structures --overwrite
+	open html/data_structures/index.html
 
 htmlcov:
 	$(TEST) --cov data_structures

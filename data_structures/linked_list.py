@@ -1,13 +1,36 @@
 class LinkedList:
-    """ Linked list implementation
-        TODO: have a linked list class and use it to create single, double, and circular linked list classes...
+    """
+    Linked list implementation
+
+    TODO: have a linked list class and use it to create single, double, and circular linked list classes...
     """
 
     def __init__(self):
+        """
+        Initializes a Doubly Linked list
+
+        Example:
+        ```python
+            list = LinkedList()
+        ```
+        """
+
         self.head = None
+        """
+        The head of the linked list, or first element.
+        """
 
     def append(self, data):
-        """ append data as a node to the linked list.  has to traverse the list """
+        """
+        Given an input, creates a node, and adds to the end of linked list.
+
+        Example:
+        ```python
+            list = LinkedList()
+            list.append("foo")
+            # `list` contains a node with a data property set to "foo"
+        ```
+        """
         new_node = Node(data)
 
         if self.head is None:
@@ -24,6 +47,16 @@ class LinkedList:
         new_node.past = past_node
 
     def count(self):
+        """
+        Return the count/length of the linked list
+
+        Example:
+        ```python
+            list = LinkedList()
+            # 3 nodes inserted into list
+            print(list.count()) # prints 3 to stdout
+        ```
+        """
         count = 0
 
         if self.head is None:
@@ -36,7 +69,18 @@ class LinkedList:
         return count
 
     def delete(self, data):
-        """ traverse list and if data is found delete that node from list """
+        """
+        Traverse list looking for `data`; if a node's data matches the input it's deleted.
+        All matching nodes are deleted.
+
+        Example:
+        ```python
+            list = LinkedList()
+            # nodes are inserted and the list, as an array, is [1, 2, 3, 3, 4, 5]
+            list.delete(3)
+            # list as an array will now be [1, 2, 4, 5]
+        ```
+        """
         current_node = self.head
         last_node = None
         while current_node is not None:
@@ -52,7 +96,16 @@ class LinkedList:
             current_node = current_node.next
 
     def insert(self, data):
-        """ inserts a new node of data as the head of the list """
+        """
+        Given an input, create a node, and insert into the head of the list.
+
+        Example:
+        ```python
+            list = LinkedList()
+            list.insert("foo")
+            # `list` contains a node with a data property set to "foo"
+        ```
+        """
         new_node = Node(data)
 
         if self.head is None:
@@ -64,7 +117,16 @@ class LinkedList:
             next_node.past = new_node
 
     def reverse(self):
-        """ reverse the linked list with one pass by swapping each next/past references """
+        """
+        Reverse the order of the list.
+
+        Example:
+        ```python
+            # given a list, as an array, looks like [1, 2, 3, 4, 5]
+            list.reverse()
+            # list will now, as an array, look like [5, 4, 3, 2, 1]
+        ```
+        """
         previous = None
         current_node = self.head
 
@@ -81,7 +143,16 @@ class LinkedList:
         self.head = previous
 
     def to_array(self):
-        """ return an array of each nodes 'data' property """
+        """
+        Returns the linked list as an array of the data properties of each node.
+
+        Example:
+        ```python
+            # given a list with 3 nodes with data 1, 2, 3
+            print(list.to_array())
+            # will print '[1, 2, 3]'
+        ```
+        """
         array = []
         node = self.head
 
@@ -98,12 +169,29 @@ class LinkedList:
 
 class Node:
     def __init__(self, data):
+        """
+        Given an input, creates a new node, to be used in a linked list.
+        """
+
         self.data = data
+        """
+        The data the node is storing.
+        """
+
         self.next = None
+        """
+        Pointer to the next node in the list.
+        """
+
         self.past = None
+        """
+        Pointer to the previous or past node in the list.
+        """
 
     def to_string(self):
-        """ convert node to string for printing """
+        """
+        Return a node as a string with each property on a newline.
+        """
         strs = ["Node ID: {}".format(self)]
         strs.append("Node data: {}".format(self.data))
         strs.append("Node next: {}".format(self.next))
