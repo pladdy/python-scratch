@@ -185,7 +185,7 @@ class Node:
 
         self.past = None
         """
-        Pointer to the previous or past node in the list.
+        Pointer to the previous node in the list.
         """
 
     def to_string(self):
