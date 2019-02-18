@@ -5,6 +5,13 @@ def bubble_sort(array):
     are other algorithms with better worst case performance.
 
     Reference: https://en.wikipedia.org/wiki/Bubble_sort
+
+    Example:
+    ```python
+        unsorted = [2, 1, 5, 4, 3]
+        sorted = bubble_sort(unsorted)
+        # sorted is = [1, 2, 3, 4, 5]
+    ```
     """
     sorted = False
     sorted_array = array
@@ -17,7 +24,9 @@ def bubble_sort(array):
     return sorted_array
 
 def swap(array, x, y):
-    """ Given an array, and two valid index locations, swap the items at the locations with one another.
+    """
+    Given an array, and two valid index locations, swap the items at the locations with one another.  If invalid
+    indices are given, python will raise an exception.
 
     Example:
     ```python

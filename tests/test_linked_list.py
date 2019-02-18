@@ -4,16 +4,17 @@ from data_structures.linked_list import LinkedList
 from data_structures.linked_list import Node
 
 
-@pytest.fixture
-def new_linked_list():
+def list_from_array(array):
     list = LinkedList()
-    list.append(1)
-    list.append(2)
-    list.append(3)
-    list.append(4)
-    list.append(5)
+    for node in array:
+        list.append(node)
     return list
 
+def list_from_integer(int):
+    list = LinkedList()
+    for i in range(int):
+        list.append(i + 1)
+    return list
 
 class TestLinkedList:
     def test_init(self):
@@ -55,11 +56,8 @@ class TestLinkedList:
         list.insert("another node")
         assert list.count() == 2
 
-    def test_delete(self, new_linked_list):
-        list = LinkedList()
-        list.append(1)
-        list.append(2)
-        list.append(3)
+    def test_delete(self):
+        list = list_from_integer(3)
         assert list.count() == 3
         assert list.to_array() == [1, 2, 3]
 
@@ -77,7 +75,7 @@ class TestLinkedList:
         assert last.next is None
         assert last.past == first
 
-        list = new_linked_list
+        list = list_from_integer(5)
         list.delete(3)
         assert list.to_array() == [1, 2, 4, 5]
 
@@ -117,15 +115,40 @@ class TestLinkedList:
         assert new_first.past is None
         assert first.past == new_first
 
-    def test_reverse(self):
-        list = LinkedList()
-        list.insert(3)
-        list.insert(2)
-        list.insert(1)
+        list.insert("yet another node")
+        new_first = list.head
+        second = new_first.next
+        assert list.count() == 3
+        assert new_first.data == "yet another node"
+        assert new_first.next == second
+        assert new_first.past is None
+        assert first.past == second
 
-        assert list.to_array() == [1, 2, 3]
-        list.reverse()
-        assert list.to_array() == [3, 2, 1]
+    def test_reverse(self):
+        tests = [
+            {'list': list_from_integer(3),
+             'before': [1, 2, 3],
+             'after': [3, 2, 1]
+             },
+            {'list': list_from_integer(1),
+             'before': [1],
+             'after': [1]
+             },
+            {'list': list_from_array([]),
+             'before': [],
+             'after': []
+             },
+            {'list': list_from_array(["first", "second", "third"]),
+             'before': ["first", "second", "third"],
+             'after': ["third", "second", "first"]
+             }
+        ]
+
+        for test in tests:
+            list = test['list']
+            assert list.to_array() == test['before']
+            list.reverse()
+            assert list.to_array() == test['after']
 
 
 class TestNode:
