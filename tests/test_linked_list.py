@@ -25,14 +25,14 @@ class TestLinkedList:
         list.append("a node")
 
         first = list.head
-        assert list.count() == 1
+        assert list.size() == 1
         assert first.data == "a node"
         assert first.next is None
         assert first.past is None
 
         list.append("another node")
         second = first.next
-        assert list.count() == 2
+        assert list.size() == 2
         assert second.data == "another node"
         assert second.next is None
         assert second.past == first
@@ -40,7 +40,7 @@ class TestLinkedList:
 
         list.append("yet another node")
         third = second.next
-        assert list.count() == 3
+        assert list.size() == 3
         assert third.data == "yet another node"
         assert third.next is None
         assert third.past == second
@@ -48,21 +48,21 @@ class TestLinkedList:
 
     def test_count(self):
         list = LinkedList()
-        assert list.count() == 0
+        assert list.size() == 0
 
         list.insert("a node")
-        assert list.count() == 1
+        assert list.size() == 1
 
         list.insert("another node")
-        assert list.count() == 2
+        assert list.size() == 2
 
     def test_delete(self):
         list = list_from_integer(3)
-        assert list.count() == 3
+        assert list.size() == 3
         assert list.to_array() == [1, 2, 3]
 
         list.delete(2)
-        assert list.count() == 2
+        assert list.size() == 2
 
         first = list.head
         last = first.next
@@ -102,14 +102,14 @@ class TestLinkedList:
         list.insert("a node")
 
         first = list.head
-        assert list.count() == 1
+        assert list.size() == 1
         assert first.data == "a node"
         assert first.next is None
         assert first.past is None
 
         list.insert("another node")
         new_first = list.head
-        assert list.count() == 2
+        assert list.size() == 2
         assert new_first.data == "another node"
         assert new_first.next == first
         assert new_first.past is None
@@ -118,7 +118,7 @@ class TestLinkedList:
         list.insert("yet another node")
         new_first = list.head
         second = new_first.next
-        assert list.count() == 3
+        assert list.size() == 3
         assert new_first.data == "yet another node"
         assert new_first.next == second
         assert new_first.past is None

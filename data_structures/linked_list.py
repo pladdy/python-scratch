@@ -16,6 +16,7 @@ class LinkedList:
         """
 
         self.head = None
+        self.count = 0
         """
         The head of the linked list, or first element.
         """
@@ -32,6 +33,7 @@ class LinkedList:
         ```
         """
         new_node = Node(data)
+        self.count += 1
 
         if self.head is None:
             self.head = new_node
@@ -46,27 +48,27 @@ class LinkedList:
         past_node.next = new_node
         new_node.past = past_node
 
-    def count(self):
+    def size(self):
         """
-        Return the count/length of the linked list
+        Return the number of nodes in the linked list.
 
         Example:
         ```python
             list = LinkedList()
             # 3 nodes inserted into list
-            print(list.count()) # prints 3 to stdout
+            print(list.size()) # prints 3 to stdout
         ```
         """
-        count = 0
-
-        if self.head is None:
-            return count
-
-        current = self.head
-        while current is not None:
-            count += 1
-            current = current.next
-        return count
+        return self.count
+        #
+        # if self.head is None:
+        #     return count
+        #
+        # current = self.head
+        # while current is not None:
+        #     count += 1
+        #     current = current.next
+        # return count
 
     def delete(self, data):
         """
@@ -91,6 +93,7 @@ class LinkedList:
                     last_node.next = current_node.next
                     if current_node.next is not None:
                         current_node.next.past = last_node
+                self.count -= 1
             else:
                 last_node = current_node
             current_node = current_node.next
@@ -107,6 +110,7 @@ class LinkedList:
         ```
         """
         new_node = Node(data)
+        self.count += 1
 
         if self.head is None:
             self.head = new_node
