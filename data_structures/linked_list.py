@@ -33,20 +33,19 @@ class LinkedList:
         ```
         """
         new_node = Node(data)
-        self.count += 1
 
         if self.head is None:
             self.head = new_node
-            return
+        else:
+            current_node = self.head
+            past_node = None
+            while current_node is not None:
+                past_node = current_node
+                current_node = current_node.next
 
-        current_node = self.head
-        past_node = None
-        while current_node is not None:
-            past_node = current_node
-            current_node = current_node.next
-
-        past_node.next = new_node
-        new_node.past = past_node
+            past_node.next = new_node
+            new_node.past = past_node
+        self.count += 1
 
     def size(self):
         """
@@ -60,15 +59,6 @@ class LinkedList:
         ```
         """
         return self.count
-        #
-        # if self.head is None:
-        #     return count
-        #
-        # current = self.head
-        # while current is not None:
-        #     count += 1
-        #     current = current.next
-        # return count
 
     def delete(self, data):
         """
