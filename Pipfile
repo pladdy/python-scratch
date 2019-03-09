@@ -51,6 +51,7 @@ MarkupSafe = "==1.1.0"
 Pygments = "==2.3.1"
 codecov = "*"
 pdoc3 = "*"
+bandit = "*"
 
 [requires]
 python_version = "3.7"

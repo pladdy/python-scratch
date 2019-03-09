@@ -109,10 +109,13 @@ Requirements
 
 References
 ----------
+* Dependency Monitor: https://pyup.io/
+* Documenting Tool: https://pdoc3.github.io/pdoc/
+* Formating Tool: https://github.com/ambv/black
 * Python Guide: https://docs.python-guide.org/
     * It covers a lot of topics from tools like logging, build/deploy, concurrency, etc.
+* Security Scanner: https://bandit.readthedocs.io/en/latest/
 * Testing with pytest: https://docs.pytest.org/en/latest/
-* Documenting Tool: https://pdoc3.github.io/pdoc/
 
 Compatibility
 -------------

@@ -1,7 +1,8 @@
-.PHONY: all clean dependencies docs lint mac-dependencies mac-python python-depdencies test
+.PHONY: all bandit black clean dependencies docs lint mac-dependencies mac-python python-depdencies test
 
 HOMEBREW = $(shell which homebrew)
 TEST = PYTHONPATH=./ pipenv run pytest -s -v
+DIRS = data_structures/ algorithms/ tests/
 
 all:
 ifdef HOMEBREW
@@ -11,8 +12,11 @@ else
 	$(MAKE) python-dependencies
 endif
 
+bandit:
+	bandit -c bandit.yaml -r $(DIRS)
+
 black:
-	black data_structures/ algorithms/ tests/
+	black --exclude git --exclude venv ./
 
 clean:
 	rm -rf htmlcov venv
