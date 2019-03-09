@@ -23,6 +23,7 @@ def bubble_sort(array):
                 sorted = False
     return sorted_array
 
+
 def swap(array, x, y):
     """
     Given an array, and two valid index locations, swap the items at the locations with one another.  If invalid

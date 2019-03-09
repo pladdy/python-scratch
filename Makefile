@@ -11,6 +11,9 @@ else
 	$(MAKE) python-dependencies
 endif
 
+black:
+	black data_structures/ algorithms/ tests/
+
 clean:
 	rm -rf htmlcov venv
 
@@ -38,6 +41,7 @@ mac-python:
 
 python-dependencies:
 	pip3 install pipenv
+	pip3 install black
 	pipenv install
 
 test:

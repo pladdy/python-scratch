@@ -10,11 +10,13 @@ def list_from_array(array):
         list.append(node)
     return list
 
+
 def list_from_integer(int):
     list = LinkedList()
     for i in range(int):
         list.append(i + 1)
     return list
+
 
 class TestLinkedList:
     def test_init(self):
@@ -126,29 +128,21 @@ class TestLinkedList:
 
     def test_reverse(self):
         tests = [
-            {'list': list_from_integer(3),
-             'before': [1, 2, 3],
-             'after': [3, 2, 1]
-             },
-            {'list': list_from_integer(1),
-             'before': [1],
-             'after': [1]
-             },
-            {'list': list_from_array([]),
-             'before': [],
-             'after': []
-             },
-            {'list': list_from_array(["first", "second", "third"]),
-             'before': ["first", "second", "third"],
-             'after': ["third", "second", "first"]
-             }
+            {"list": list_from_integer(3), "before": [1, 2, 3], "after": [3, 2, 1]},
+            {"list": list_from_integer(1), "before": [1], "after": [1]},
+            {"list": list_from_array([]), "before": [], "after": []},
+            {
+                "list": list_from_array(["first", "second", "third"]),
+                "before": ["first", "second", "third"],
+                "after": ["third", "second", "first"],
+            },
         ]
 
         for test in tests:
-            list = test['list']
-            assert list.to_array() == test['before']
+            list = test["list"]
+            assert list.to_array() == test["before"]
             list.reverse()
-            assert list.to_array() == test['after']
+            assert list.to_array() == test["after"]
 
 
 class TestNode:

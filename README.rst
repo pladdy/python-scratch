@@ -73,6 +73,7 @@ Now one can just use `make` and dependencies should be taken care of with pipenv
 .. code:: bash
 
   pip3 install pipenv
+  pip3 install black
   pipenv install cookiecutter
   pipenv install pdoc3
   pipenv install pytest
