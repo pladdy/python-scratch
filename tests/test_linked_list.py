@@ -1,7 +1,7 @@
 import pytest
 
-from data_structures.linked_list import LinkedList
-from data_structures.linked_list import Node
+from python_scratch.data_structures.linked_list import LinkedList
+from python_scratch.data_structures.linked_list import Node
 
 
 def list_from_array(array):

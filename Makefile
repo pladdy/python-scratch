@@ -2,7 +2,7 @@
 
 HOMEBREW = $(shell which homebrew)
 TEST = PYTHONPATH=./ pipenv run pytest -s -v
-DIRS = data_structures/ algorithms/ tests/
+DIRS = python_scratch/ tests/
 
 all:
 ifdef HOMEBREW
@@ -35,7 +35,7 @@ htmlcov:
 	$(TEST) --cov data_structures
 
 lint:
-	pylama python_scratch/ tests/
+	pylama $(DIRS)
 
 mac-dependencies: mac-python python-dependencies
 

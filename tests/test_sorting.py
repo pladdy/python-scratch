@@ -1,6 +1,6 @@
 import pytest
 
-import algorithms.sorting as sorting
+import python_scratch.algorithms.sorting as sorting
 
 
 def test_bubble_sort():
