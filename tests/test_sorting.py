@@ -1,3 +1,4 @@
+import logging
 import pytest
 
 import python_scratch.algorithms.sorting as sorting
@@ -33,3 +34,4 @@ def test_swap_invalid():
     for test in tests:
         with pytest.raises(Exception) as e_info:
             sorting.swap(test["to_swap"], test["first"], test["second"])
+            logging.info(e_info)

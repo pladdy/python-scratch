@@ -1,5 +1,3 @@
-import pytest
-
 from python_scratch.data_structures.linked_list import LinkedList
 from python_scratch.data_structures.linked_list import Node
 

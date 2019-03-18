@@ -2,7 +2,8 @@
 
 HOMEBREW = $(shell which homebrew)
 TEST = PYTHONPATH=./ pipenv run pytest -s -v
-DIRS = python_scratch/ tests/
+LIB = python_scratch/
+DIRS = $(LIB) tests/
 
 all:
 ifdef HOMEBREW
@@ -11,6 +12,8 @@ else
 	$(info HOMEBREW undefined, assuming python3 and pip3 are installed...)
 	$(MAKE) python-dependencies
 endif
+
+all-tests: black test lint bandit cover
 
 bandit:
 	bandit -c bandit.yaml -r $(DIRS)
@@ -32,10 +35,10 @@ docs:
 	open html/algorithms/index.html
 
 htmlcov:
-	$(TEST) --cov data_structures
+	$(TEST) --cov $(LIB)
 
 lint:
-	pylama $(DIRS)
+	pylama -o pylama.ini $(DIRS)
 
 mac-dependencies: mac-python python-dependencies
 
