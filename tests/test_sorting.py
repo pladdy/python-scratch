@@ -3,6 +3,8 @@ import pytest
 
 import python_scratch.algorithms.sorting as sorting
 
+logging.basicConfig(level=logging.DEBUG)
+
 
 def test_bubble_sort():
     tests = [
@@ -34,4 +36,4 @@ def test_swap_invalid():
     for test in tests:
         with pytest.raises(Exception) as e_info:
             sorting.swap(test["to_swap"], test["first"], test["second"])
-            logging.info(e_info)
+            logging.info("Error info:", e_info)
