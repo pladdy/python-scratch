@@ -5,8 +5,8 @@ python-scratch
     :target: https://pypi.python.org/pypi/python-scratch
     :alt: Latest PyPI version
 
-.. image:: https://travis-ci.org/pladdy/python-scratch.svg?branch=master
-   :target: https://travis-ci.org/pladdy/python-scratch
+.. image:: https://travis-ci.com/pladdy/python-scratch.svg?branch=master
+   :target: https://travis-ci.com/pladdy/python-scratch
    :alt: Build Status
 
 .. image:: https://codecov.io/gh/pladdy/stones/branch/master/graph/badge.svg
