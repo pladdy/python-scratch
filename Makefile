@@ -49,6 +49,7 @@ mac-python:
 python-dependencies:
 	pip3 install pipenv
 	pip3 install black
+	pipenv --python 3.7
 	pipenv install
 
 test:
