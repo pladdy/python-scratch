@@ -1,0 +1,16 @@
+[[package]]
+category = "dev"
+description = "A simple test"
+name = "dis"
+optional = false
+python-versions = "*"
+version = "1.0.1"
+
+[metadata]
+content-hash = "68c2322b532dfe3932524ddb3ae0913ec3a66378dbd3ace63a6b77df6a49cf2b"
+python-versions = "~3.7"
+
+[metadata.files]
+dis = [
+    {file = "dis-1.0.1.tar.gz", hash = "sha256:1e132f1de26e54592c7508957cfabc9ccfb3fd6c327a9c352d1fc95f42043f20"},
+]
