@@ -1,3 +1,7 @@
+[tool.dephell.main]
+from = {format = "poetry", path = "pyproject.toml"}
+to = {format = "setuppy", path = "setup.py"}
+
 [tool.poetry]
 name = "python-scratch"
 version = "0.0.1"

@@ -1,4 +1,4 @@
-.PHONY: requirements.txt
+.PHONY: requirements.txt requirements-dev.txt
 
 APP = python_scratch
 TEST = poetry run pytest -x -s -rA --durations=10 -vv --cov $(APP) $(TESTS)
@@ -33,6 +33,9 @@ cover-codacy: cov-reports
 	poetry run coverage xml
 	source .env && poetry run python-codacy-coverage -r coverage.xml
 
+dephell:
+	curl -L dephell.org/install | python3
+
 install:
 	poetry install
 
@@ -49,10 +52,10 @@ release:
 	git push && git push --tags
 
 requirements.txt:
-	poetry run dephell deps converts --from-format=poetry --from-path=pyproject.toml --to-format=pip --to-path=$@
+	dephell deps converts --envs main --to-format=pip --to-path=$@
 
-run-debug:
-	DEBUG=1 FLASK_ENV=development poetry run python $(APP)/app.py
+requirements-dev.txt:
+	dephell deps converts --envs dev --to-format=pip --to-path=$@
 
 test:
 	$(TEST)
