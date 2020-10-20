@@ -1,65 +1,61 @@
-.PHONY: all bandit black clean dependencies docs lint mac-dependencies mac-python python-depdencies test
+.PHONY: requirements.txt
 
-HOMEBREW = $(shell which homebrew)
-TEST = PYTHONPATH=./ pipenv run pytest -s -v
-LIB = python_scratch/
-DIRS = $(LIB) tests/
+APP = python_scratch
+TEST = poetry run pytest -x -s -rA --durations=10 -vv --cov $(APP) $(TESTS)
+TESTS = tests
 
-all:
-ifdef HOMEBREW
-	$(MAKE) mac-dependencies
-else
-	$(info HOMEBREW undefined, assuming python3 and pip3 are installed...)
-	$(MAKE) python-dependencies
-endif
+all: poetry install
 
-all-tests: black test lint bandit cover
+bump-major:
+	poetry run dephell project bump major
 
-bandit:
-	bandit -c bandit.yaml -r $(DIRS)
+bump-minor:
+	poetry run dephell project bump minor
 
-black:
-	black --exclude git --exclude venv ./
+bump-patch:
+	poetry run dephell project bump patch
+
+bump-reset:
+	git reset HEAD~1
 
 clean:
-	rm -rf htmlcov venv
+	find ./ -type d -name *__pycache__ -exec rm -rf {} \;
+	rm .coverage coverage.xml
+	rm -rf .pytest_cache htmlcov
 
-cover: htmlcov
-	coverage html
+cov-reports:
+	$(TEST) --cov-report html
+
+cover: cov-reports
 	open htmlcov/index.html
 
-docs:
-	pipenv run pdoc --html data_structures --overwrite
-	pipenv run pdoc --html algorithms --overwrite
-	open html/data_structures/index.html
-	open html/algorithms/index.html
+cover-codacy: cov-reports
+	poetry run coverage xml
+	source .env && poetry run python-codacy-coverage -r coverage.xml
 
-htmlcov:
-	$(TEST) --cov $(LIB)
+install:
+	poetry install
 
-lint:
-	pylama -o pylama.ini $(DIRS)
+lint: pre-commit
 
-mac-dependencies: mac-python python-dependencies
+POETRY_VERSION = 1.1.3
+poetry:
+	curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/$(POETRY_VERSION)/get-poetry.py | python
 
-mac-python:
-	-brew install python3
-	-brew install pandoc
+pre-commit:
+	pre-commit run --all-files
 
-python-dependencies:
-	pip3 install pipenv
-	pip3 install black
-	pipenv --python 3.7
-	pipenv install
+release:
+	git push && git push --tags
+
+requirements.txt:
+	poetry run dephell deps converts --from-format=poetry --from-path=pyproject.toml --to-format=pip --to-path=$@
+
+run-debug:
+	DEBUG=1 FLASK_ENV=development poetry run python $(APP)/app.py
 
 test:
 	$(TEST)
 
-test-name:
-ifdef name
-	$(TEST) -k $(name)
-else
-	@echo Syntax is 'make $@ name=<test name>'
-endif
-
-test-with-cov: test htmlcov
+vulnerability:
+	poetry run safety check

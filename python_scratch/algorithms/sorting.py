@@ -1,8 +1,9 @@
 def bubble_sort(array):
     """
-    Given an array of data, sort the array.  The bubble sort, or sinking sort, steps through the list and swaps
-    items, repeating as necessary until the list is sorted.  It's not a practical sort algorithm to use as there
-    are other algorithms with better worst case performance.
+    Given an array of data, sort the array.  The bubble sort, or sinking sort,
+    steps through the list and swaps items, repeating as necessary until the
+    list is sorted.  It's not a practical sort algorithm to use as there are
+    other algorithms with better worst case performance.
 
     Reference: https://en.wikipedia.org/wiki/Bubble_sort
 
@@ -26,8 +27,9 @@ def bubble_sort(array):
 
 def swap(array, x, y):
     """
-    Given an array, and two valid index locations, swap the items at the locations with one another.  If invalid
-    indices are given, python will raise an exception.
+    Given an array, and two valid index locations, swap the items at the
+    locations with one another.  If invalid indices are given, python will raise
+    an exception.
 
     Example:
     ```python

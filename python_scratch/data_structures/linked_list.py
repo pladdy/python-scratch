@@ -2,7 +2,8 @@ class LinkedList:
     """
     Linked list implementation
 
-    TODO: have a linked list class and use it to create single, double, and circular linked list classes...
+    TODO: have a linked list class and use it to create single, double, and
+          circular linked list classes...
     """
 
     def __init__(self):
@@ -62,13 +63,15 @@ class LinkedList:
 
     def delete(self, data):
         """
-        Traverse list looking for `data`; if a node's data matches the input it's deleted.
+        Traverse list looking for `data`; if a node's data matches the input
+        it's deleted.
+
         All matching nodes are deleted.
 
         Example:
         ```python
             list = LinkedList()
-            # nodes are inserted and the list, as an array, is [1, 2, 3, 3, 4, 5]
+            # nodes are inserted and the list, an array, is [1, 2, 3, 3, 4, 5]
             list.delete(3)
             # list as an array will now be [1, 2, 4, 5]
         ```
@@ -138,7 +141,7 @@ class LinkedList:
 
     def to_array(self):
         """
-        Returns the linked list as an array of the data properties of each node.
+        Returns a linked list as an array of the data properties of each node.
 
         Example:
         ```python
