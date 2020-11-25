@@ -126,7 +126,11 @@ class TestLinkedList:
 
     def test_reverse(self):
         tests = [
-            {"list": list_from_integer(3), "before": [1, 2, 3], "after": [3, 2, 1]},
+            {
+                "list": list_from_integer(3),
+                "before": [1, 2, 3],
+                "after": [3, 2, 1],
+            },
             {"list": list_from_integer(1), "before": [1], "after": [1]},
             {"list": list_from_array([]), "before": [], "after": []},
             {
