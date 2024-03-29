@@ -46,7 +46,7 @@ poetry:
 	curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/$(POETRY_VERSION)/get-poetry.py | python
 
 pre-commit:
-	pre-commit run --all-files
+	poetry run pre-commit run --all-files
 
 release:
 	git push && git push --tags
