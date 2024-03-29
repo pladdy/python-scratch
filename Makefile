@@ -7,13 +7,13 @@ TESTS = tests
 all: poetry install
 
 bump-major:
-	poetry run dephell project bump major
+	poetry run bumpversion major
 
 bump-minor:
-	poetry run dephell project bump minor
+	poetry run bumpversion minor
 
 bump-patch:
-	poetry run dephell project bump patch
+	poetry run bumpversion patch
 
 bump-reset:
 	git reset HEAD~1
@@ -33,29 +33,16 @@ cover-codacy: cov-reports
 	poetry run coverage xml
 	source .env && poetry run python-codacy-coverage -r coverage.xml
 
-dephell:
-	curl -L dephell.org/install | python3
-
 install:
 	poetry install
 
 lint: pre-commit
-
-POETRY_VERSION = 1.1.3
-poetry:
-	curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/$(POETRY_VERSION)/get-poetry.py | python
 
 pre-commit:
 	poetry run pre-commit run --all-files
 
 release:
 	git push && git push --tags
-
-requirements.txt:
-	dephell deps converts --envs main --to-format=pip --to-path=$@
-
-requirements-dev.txt:
-	dephell deps converts --envs dev --to-format=pip --to-path=$@
 
 test:
 	$(TEST)
