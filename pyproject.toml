@@ -12,7 +12,7 @@ license = "MIT"
 [tool.poetry.dependencies]
 python = ">=3.9"
 
-[tool.poetry.dev-dependencies]
+[tool.grouop.dev.dependencies]
 bandit = "~=1.6.2"
 safety = "~=1.9.0"
 sphinx = "~=3.0.4"
